@@ -32,15 +32,14 @@ p {
     padding: 15px;
     background: brown;
     color: white;
-    font-size: large;
     text-align: center;
     cursor: pointer;
 }
 
 .button-zpet {
     position: fixed;
-    top: 3em;
-    right: 2em;
+    top: 1%;
+    right: 2%;
     width: 5em; 
     padding: 5px;
     background: gray;
@@ -59,3 +58,10 @@ h1 {
 body {
     background: #e3e3e3;
 }
+
+@media all and (min-device-width : 320px) and (max-device-width : 950px) {
+    body, button, a, .button-zpet, .button-more {
+        font-size: 2em;
+    }
+}
+
