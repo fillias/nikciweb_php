@@ -80,11 +80,11 @@ window.onscroll = function() {
   var offset = d.scrollTop + window.innerHeight;
   var height = d.offsetHeight;
 
-  // console.log('offset = ' + offset);
-  // console.log('height = ' + height);
+   console.log('offset = ' + offset);
+   console.log('height = ' + height);
 
-  if (offset === height && !allImgLoaded) {
-    // console.log('At the bottom');
+  if ( (offset === height || offset >= height - 10) && !allImgLoaded) {
+     console.log('At the bottom');
 
     /* vyhod observer na reklamu hazi chybu */
 	if (observer) {
