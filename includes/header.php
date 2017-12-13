@@ -8,4 +8,17 @@
 </head>
 
 <body>
+<header class="header">
+	<ul>
+		<li>
+			<a href="index.php"><span>domů</span></a>
+		</li>
+		<li>
+			<a href="galerie.php"><span>galerie</span></a>
+		</li>
+		<li>
+			<a href="videa.php"><span>videa</span></a>
+		</li>
+	</ul>
+</header>
 
