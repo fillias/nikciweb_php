@@ -6,7 +6,7 @@
     <h1>nadpis</h1>
     <h2>xxxx.</h2>
     <br>
-    <img src="obrazky/kocka.jpg" width="700" height="700">
+    <img src="obrazky/kocka.jpg">
     <br>
     <p>Vyrobila jsem tuhle pěknou stránku, učím se programovat v jazyce HTML.</p>
     <br>
