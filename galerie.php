@@ -4,11 +4,14 @@ $dirname = "obr/";
 $images = glob($dirname."*.JPG");
 ?>
 
-
-
-<a href="index.php">Domu</a>
-
+<div class="gallery-big-close">X</div>
+<div class="gallery-big-background">X</div>
+<div class="gallery-wrapper"></div>
 <script type="text/javascript">
+var closeBig = document.querySelector('.gallery-big-close');
+var backBig = document.querySelector('.gallery-big-background');
+var wrapper = document.querySelector('.gallery-wrapper');
+
 
 
 var images = <?php echo json_encode($images); ?>;
@@ -49,7 +52,31 @@ function displayImage(src) {
 	const img = document.createElement('img');
 	img.className += 'gallery-image';
 	img.src = src;
-	document.body.appendChild(img);
+	img.addEventListener('click', function(){
+		enlargeImg(this);
+	} );
+	wrapper.appendChild(img);
+}
+
+
+
+
+function enlargeImg(img) {
+	disableScroll();
+	var zpet = document.querySelector('#zpet');
+	zpet.style.display = 'none';
+	img.className += ' gallery-image-big';
+
+	closeBig.style.display = "block";
+	backBig.style.display = "block";
+	closeBig.addEventListener('click', function handler(e){
+		img.classList.remove('gallery-image-big');
+		this.removeEventListener('click', handler);
+		this.style.display = 'none';
+		backBig.style.display = "none";
+		zpet.style.display = 'block';
+		enableScroll();
+	});
 }
 
 function addZpetButton(i){
@@ -80,11 +107,11 @@ window.onscroll = function() {
   var offset = d.scrollTop + window.innerHeight;
   var height = d.offsetHeight;
 
-   console.log('offset = ' + offset);
-   console.log('height = ' + height);
+   // console.log('offset = ' + offset);
+   // console.log('height = ' + height);
 
   if ( (offset === height || offset >= height - 10) && !allImgLoaded) {
-     console.log('At the bottom');
+     // console.log('At the bottom');
 
     /* vyhod observer na reklamu hazi chybu */
 	if (observer) {
@@ -98,37 +125,29 @@ window.onscroll = function() {
   }
 };
 
-
-/*  button more nepouzito  
-
-function removeOldButton() {
-	const oldBtn = document.getElementById("more");
-	if (oldBtn) {
-		oldBtn.parentNode.removeChild(oldBtn);
-	}
+function preventDefault(e) {
+  e = e || window.event;
+  if (e.preventDefault)
+      e.preventDefault();
+  e.returnValue = false;  
 }
 
-
-function addButton(i){
-	removeOldButton();
-
-	const button = document.createElement('button');
-	button.id = "more";
-	button.textContent = '...další...';
-	button.className += 'button-more ';
-	button.addEventListener('click', function() {
-		// vyhod observer na reklamu hazi chybu 
-		if (observer) {
-			observer.disconnect();
-			observer = false;
-		} 
-
-		loadImages(i);
-	});	
-	document.body.appendChild(button);
+function disableScroll() {
+  if (window.addEventListener) // older FF
+      window.addEventListener('DOMMouseScroll', preventDefault, false);
+  window.onwheel = preventDefault; // modern standard
+  window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+  window.ontouchmove  = preventDefault; // mobile
 }
 
-*/
+function enableScroll() {
+    if (window.removeEventListener)
+        window.removeEventListener('DOMMouseScroll', preventDefault, false);
+    window.onmousewheel = document.onmousewheel = null; 
+    window.onwheel = null; 
+    window.ontouchmove = null;  
+    document.onkeydown = null;  
+}
 
 </script>
 
