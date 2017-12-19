@@ -10,12 +10,16 @@
 
 <body>
 <header class="header">
-	<ul>
+	<ul class="main-menu">
 		<li>
 			<a href="index.php"><span>domů</span></a>
 		</li>
-		<li>
-			<a href="galerie.php"><span>galerie</span></a>
+		<li id="menu-gallery-button">
+			<a href="#"><span>galerie</span></a></li>
+			<ul class ="popup-menu inactive">
+				<li><a href="rodinka.php"><span>rodinka</span></a></li>
+				<li><a href="moje.php"><span>moje</span></a></li>
+			</ul>
 		</li>
 		<li>
 			<a href="videa.php"><span>videa</span></a>

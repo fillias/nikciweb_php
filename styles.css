@@ -65,21 +65,13 @@ h2 {
 }
 
 /*  flex container */
-header ul {
+
+.main-menu {
     display: flex;
-
-
+    justify-content: center;
 }
 
-
-.header li {
-    text-align: center;
-    flex: 1;
-    border-right: 1px solid white;
-
-}
-
-.header li {
+.main-menu > li {
     text-align: center;
     flex: 1;
     border-right: 1px solid white;
@@ -87,11 +79,11 @@ header ul {
     align-items: center;
 }
 
-.header li:last-child {
+.main-menu > li:last-child {
     border:none;
 }
 
-.header a {
+.main-menu a {
     flex: 1;
     color: white;
     background: navy;
@@ -104,9 +96,36 @@ header ul {
     height: 30px;
 }
 
-.header a:hover {
+.main-menu a:hover {
     background: rgba(100, 100, 100, 0.7);
 }
+
+
+.popup-menu {
+    position: absolute;
+    top: 49px;
+    border-top: 2px solid grey;
+    flex-direction: column;
+    transition: all .6s;
+    display: flex;
+}
+
+.inactive {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+
+.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-menu a {
+    background: #2880f8;
+}
+
 
 p {
     color: violet;

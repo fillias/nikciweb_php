@@ -1,8 +1,9 @@
 
 <script type="text/javascript">
+
 /* vyhod tu reklamu */
 
-   var foo = document.querySelector('body');
+  var foo = document.querySelector('body');
 
   var observer = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutation) {
@@ -16,8 +17,21 @@
       }); 
   });
 
-
   observer.observe(foo, { childList: true });
+
+
+
+/*  reseni sirky popupmenu */
+const popupMenu = document.querySelector(".popup-menu");
+const galleryMenuButton = document.querySelector("#menu-gallery-button");
+
+galleryMenuButton.addEventListener('click', function() {
+  popupMenu.classList.toggle ('inactive');
+  popupMenu.classList.toggle ('active');
+} );
+
+popupMenu.style.width = window.getComputedStyle(galleryMenuButton, null).width;
+
   
 </script>
 
