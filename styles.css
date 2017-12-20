@@ -97,7 +97,7 @@ h2 {
 }
 
 .main-menu a:hover {
-    background: rgba(100, 100, 100, 0.7);
+    background: rgb(100, 100, 100);
 }
 
 
@@ -106,7 +106,7 @@ h2 {
     top: 49px;
     border-top: 2px solid grey;
     flex-direction: column;
-    transition: all .6s;
+    transition: all .1s;
     display: flex;
 }
 
